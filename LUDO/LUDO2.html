@@ -1,0 +1,136 @@
+<html>
+<head>
+	<title>LUDO2</title>
+	
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Lobster&display=swap" rel="stylesheet">
+	<style>
+	
+     body{background-image:url("Ludo Board.png"); background-position:center;
+     	  background-repeat:no-repeat; }
+
+.container{width: 70%; margin: auto; text-align: center;}
+
+    .dice{display:flex;justify-content:center;text-align: center; display: inline-block;}
+
+     img{width:85px; height:85px; border-radius: 20px;}
+
+h1{	margin: 15px; font-size: 5rem;color: #45046a;
+	font-family: 'Lobster', cursive;
+	text-shadow: 5px 0 #232931;}
+
+p{	font-size: 3rem; color: #45046a;
+	font-family: 'Indie Flower', cursive; transform: translateY(-50px);}
+
+
+#d1{transform: translate(-70px,-90px);/*width:20px; height:20px;*/}
+#d6{transform: translate(70px,-85px); /*width:20px; height:20px;*/}
+#d5{transform: translate(-70px,-80px); /*width:20px; height:20px;*/}
+#d3{transform: translate(70px,-80px); /*width:20px; height:20px;*/}
+
+
+button{width:70px; height:50px;padding:12px 12px;font-weight: bolder; font-size: 15px;
+       background: transparent; border:2px solid black;transform: translateY(-20px);}
+
+       button:hover{background-color: #ff00ff; cursor: pointer;}
+
+footer{	margin-top: 3%;	color: #45046a;	text-align: center;
+	    font-family: 'Lobster', cursive; }
+	
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>JS LUDO2</h1>
+
+		<div class="dice">
+			<p>Player 1</p>
+			<img id="d1" src="D1.jpg">
+		</div>
+
+		<div class="dice">
+			<p>Player 2</p>
+			<img id="d6" src="D6.jpg">
+		</div>
+		
+		      <div>
+			      <button onclick="ludogame()">CLICK ME</button>
+			  </div>
+		
+		<div class="dice">
+			<p>Player 3</p>
+			<img id="d5" src="D5.jpg">
+		</div>
+		
+		<div class="dice">
+			<p>Player 4</p>
+			<img id="d3" src="D3.jpg">
+		</div>
+		
+</div>
+
+	<script>
+	ludogame= ()=> {
+	var randomNumber1=Math.floor(Math.random() * 6)+1;
+var randomDiceImage="D" + randomNumber1 + ".jpg";//D0-6.jpg
+document.querySelectorAll("img")[0].setAttribute("src", randomDiceImage);
+
+var randomNumber2=Math.floor(Math.random() * 6)+1;
+var randomDiceImage2="D" + randomNumber2 + ".jpg";//D0-6.jpg
+document.querySelectorAll("img")[1].setAttribute("src", randomDiceImage2);
+
+var randomNumber3=Math.floor(Math.random() * 6)+1;
+var randomDiceImage3="D" + randomNumber3 + ".jpg";//D0-6.jpg
+document.querySelectorAll("img")[2].setAttribute("src", randomDiceImage3);
+
+var randomNumber4=Math.floor(Math.random() * 6)+1;
+var randomDiceImage4="D" + randomNumber4 + ".jpg";//D0-6.jpg
+document.querySelectorAll("img")[3].setAttribute("src", randomDiceImage4);
+
+if(randomNumber1>randomNumber2){
+	document.querySelector("h1").innerHTML="Player1 Win"
+}else if(randomNumber2>randomNumber1){
+	document.querySelector("h1").innerHTML="Player2 Win"
+}
+else if(randomNumber3>randomNumber1){
+	document.querySelector("h1").innerHTML="Player3 Win"
+}
+else if(randomNumber1>randomNumber3){
+	document.querySelector("h1").innerHTML="Player1 Win"
+}
+else if(randomNumber4>randomNumber3){
+	document.querySelector("h1").innerHTML="Player4 Win"
+}
+else if(randomNumber3>randomNumber4){
+	document.querySelector("h1").innerHTML="Player3 Win"
+}
+else if(randomNumber2>randomNumber3){
+	document.querySelector("h1").innerHTML="Player2 Win"
+}
+else if(randomNumber3>randomNumber2){
+	document.querySelector("h1").innerHTML="Player3 Win"
+}
+else if(randomNumber2>randomNumber4){
+	document.querySelector("h1").innerHTML="Player2 Win"
+}
+else if(randomNumber1>randomNumber4){
+	document.querySelector("h1").innerHTML="Player1 Win"
+}
+else if(randomNumber4>randomNumber1){
+	document.querySelector("h1").innerHTML="Player4 Win"
+}	
+else{
+	document.querySelector("h1").innerHTML="Match Draw"
+}
+}	
+	
+	</script>
+
+</body>
+
+<footer>
+	PAYEL SARKAR(WEB Development-B8)
+</footer>
+
+</html>
